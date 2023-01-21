@@ -1,4 +1,6 @@
+import "./CocktailList.css"
 import Cocktail from "./Cocktail"
+
 
 const CocktailsList = ({ cocktails }) => {
 

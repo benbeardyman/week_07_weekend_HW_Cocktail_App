@@ -1,12 +1,16 @@
 import { useState, useEffect } from "react"
 import CocktailsList from "../components/CocktailsList"
+import MenuBar from "../components/MenuBar"
 
 const CocktailsContainer = () => {
 
     const [cocktails, setCocktails] = useState([])
+    const [searchTerm, setSearchTerm] = useState(null)
 
     const getCocktails = function () {
-        fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=negroni
+        // fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=martini
+        // `)
+        fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${encodeURIComponent(searchTerm)}
         `)
             .then(res => res.json())
             .then(cocktails => setCocktails(cocktails.drinks))
@@ -14,20 +18,27 @@ const CocktailsContainer = () => {
     }
 
     useEffect(() => {
-        getCocktails()
-    }, [])
+        if (searchTerm) {
+            getCocktails()
+        }
+    }, [searchTerm])
 
-    const cocktailItems = cocktails.map(cocktail => {
-        return <li key={cocktail.idDrink}>{cocktail.strDrink}</li>
-    })
-
-    console.log(cocktailItems)
+    const onSubmitSearch = (searchTerm) => {
+        setSearchTerm(searchTerm)
+        // console.log(searchTerm)
+    }
 
     return (
-        <div className="main-container">
-            <h2>Cocktails:</h2>
-            <CocktailsList cocktails={cocktails} />
-        </div>
+        <>
+            <div>
+                <MenuBar onSubmitSearch={onSubmitSearch} />
+            </div>
+            <div className="main-container">
+                <h2>Cocktails:</h2>
+                <CocktailsList cocktails={cocktails} />
+            </div>
+            
+        </>
     )
 
 }

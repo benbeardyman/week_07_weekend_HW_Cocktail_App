@@ -1,3 +1,5 @@
+import "./Cocktail.css"
+
 const Cocktail = ({ cocktail, name }) => {
 
     return (
