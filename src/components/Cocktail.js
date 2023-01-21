@@ -1,10 +1,13 @@
-import "./Cocktail.css"
+const Cocktail = ({ cocktail, name, onCocktailClicked}) => {
 
-const Cocktail = ({ cocktail, name }) => {
+    const handleClick = function () {
+        onCocktailClicked(cocktail)
+        console.log (`this ${name}`)
+    }
 
     return (
         <div>
-            <li>
+            <li onClick={handleClick}>
                 {name}
             </li>
         </div>

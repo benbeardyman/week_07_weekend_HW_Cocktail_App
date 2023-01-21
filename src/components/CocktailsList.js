@@ -2,10 +2,10 @@ import "./CocktailList.css"
 import Cocktail from "./Cocktail"
 
 
-const CocktailsList = ({ cocktails }) => {
+const CocktailsList = ({ cocktails, onCocktailClicked}) => {
 
     const arrayOfCocktails = cocktails.map((cocktail) => {
-        return <Cocktail cocktail={cocktail} name={cocktail.strDrink} key={cocktail.idDrink} />
+        return <Cocktail cocktail={cocktail} name={cocktail.strDrink} key={cocktail.idDrink} onCocktailClicked={onCocktailClicked} />
     })
 
     return (

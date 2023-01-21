@@ -1,3 +1,18 @@
 .header {
     text-align: center;
 }
+
+.main-container {
+    display: flex;
+    justify-content: left;
+    text-align: left;
+    width: 80%; margin:auto;
+}
+
+li {
+    margin: 5px;
+    padding: 10px;
+    color: rgb(68, 91, 111);
+    
+}
+
