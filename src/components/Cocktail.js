@@ -1,3 +1,5 @@
+import "./Cocktail.css"
+
 const Cocktail = ({ cocktail, name, onCocktailClicked}) => {
 
     const handleClick = function () {
@@ -7,7 +9,7 @@ const Cocktail = ({ cocktail, name, onCocktailClicked}) => {
 
     return (
         <div>
-            <li onClick={handleClick}>
+            <li className="search-li" onClick={handleClick}>
                 {name}
             </li>
         </div>

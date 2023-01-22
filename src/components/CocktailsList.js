@@ -10,7 +10,7 @@ const CocktailsList = ({ cocktails, onCocktailClicked}) => {
 
     return (
         <div>
-            <ul>
+            <ul className="search-ul">
                 {arrayOfCocktails}
             </ul>
         </div>
